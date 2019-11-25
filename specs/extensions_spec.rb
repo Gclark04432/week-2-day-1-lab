@@ -27,4 +27,11 @@ class  TestLibrary < Minitest::Test
 
   end
 
+  def test_add_book_by_name
+    book = Library.new("", "")
+    Library.add_book_by_name("The hobbit", {student_name: " ", date: " "})
+    assert_equal("The hobbit", Library.books[:title])
+  end
+
+
 end
