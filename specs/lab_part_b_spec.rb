@@ -24,4 +24,26 @@ class  TestTeam < Minitest::Test
     assert_equal(1, team.players.length)
   end
 
+  def test_check_player_name
+    team = Team.new("Codeclan", ["Tom", "Bob"], "Alex")
+    assert_equal(true, team.check_player_name("Tom"))
+  end
+
+  def test_check_points
+    team = Team.new("Codeclan", ["Tom", "Bob"], "Alex")
+    assert_equal(0, team.points)
+  end
+
+  def test_team_results_if_win
+    team = Team.new("Codeclan", ["Tom", "Bob"], "Alex")
+    team.results("win")
+    assert_equal(10, team.points)
+  end
+
+  def test_team_results_if_lose
+    team = Team.new("Codeclan", ["Tom", "Bob"], "Alex")
+    team.results("lose")
+    assert_equal(2, team.points)
+  end
+
 end
